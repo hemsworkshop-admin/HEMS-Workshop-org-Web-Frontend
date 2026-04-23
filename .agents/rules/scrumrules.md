@@ -48,6 +48,12 @@ Post a brief "Startup" in the chat: "Cold Start complete. Project Charter ingest
 3. **Hooks**: Always extract complex logic into custom hooks located in `src/hooks/`.
 4. **Errors**: Always wrap async calls in try-catch blocks with meaningful error logging.
 5. **AI Word**: NEVER use any of the following words or phrases: DSP, telemetry, Delve, Leverage, Utilize, Underscore, Empower, Foster, Streamline, Elevate, Tapestry, Landscape, Realm, Testament, Synergy, Symphony, Pivotal, Crucial, Vital, Robust, Seamless, Cutting-edge, Innovative, Multifaceted, Comprehensive, Holistic, Moreover, Furthermore, Consequently, Subsequently, Notably, In today's fast-paced digital age, It is important to note that, At the end of the day, When it comes to, That being said.
+6. **No-Fly & Anti-Hang Protocol**: Agents must strictly manage browser crawling and token limits to prevent system hangs.
+   - **Blocked Extensions**: `.pdf`, `.ppt`, `.pptx`, `.doc`, `.docx`, `.xls`, `.xlsx`, `.zip`, `.tar`, `.gz`, `.rar`, `.7z`, `.mp4`, `.mov`, `.avi`, `.exe`, `.dmg`, `.iso`.
+   - **Action if Encountered**: If an agent encounters these links, they must immediately skip the link without following it, and explicitly notify **@bo** of the skipped files.
+   - **Block the 'Abstract' Label**: Do not follow any links with the text 'Abstract' or 'Abstracts' as these point to dozens of individual files and will exhaust the token limit.
+   - **Restrict to a Single Page**: Only read the content available on the primary URL provided. Do not navigate to any sub-links or internal pages.
+   - **Limit Domain Crawling**: Do not follow links that lead to external domains (e.g., restaurant websites or sponsor sites).
 
 ## 6. The Chain of Command & Deployment Gates
 - **Documentation First:** No agent is permitted to deviate from the logic in `implementation_plan.md`. If a request from **@bo** contradicts the plan, **@arch** must intervene and update the docs first.

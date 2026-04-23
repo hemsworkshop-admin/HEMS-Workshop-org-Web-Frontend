@@ -18,6 +18,7 @@
 *   **Landing Page:** Build the 15th HEMS Workshop (Virginia Beach) home page featuring the countdown, vision, and map logistics.
 *   **Schedule & Directory:** Implement the responsive, mobile-friendly interactive agenda and speaker bio modules.
 *   **Submissions & Portal:** Provide a clean abstract submission form and implement Firebase Authentication for the Reviewer Portal.
+*   **Archive Layouts:** The UI architecture established at `/archive/2022` serves as the structural and styling template for all historical workshop archives. Future ingestions will mirror this typography, spacing, and visual hierarchy.
 
 ## 4. Launch & SEO (Phase 4)
 *   **Deployment:** Connect the `hems-workshop.org` domain to the Vercel deployment.

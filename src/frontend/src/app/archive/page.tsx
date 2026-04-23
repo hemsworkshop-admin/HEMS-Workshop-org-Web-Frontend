@@ -40,38 +40,47 @@ export default function Archive() {
         </div>
       </div>
 
-      {/* Results Placeholder */}
-      <div className="space-y-6">
-        <h3 className="font-mono text-sm text-foreground/50 border-b border-foreground/10 pb-2">SHOWING LATEST PROCEEDINGS (PROTOTYPE VIEW)</h3>
+      {/* Legacy Workshops List */}
+      <div className="space-y-4">
+        <h3 className="font-mono text-sm text-foreground/50 border-b border-foreground/10 pb-2 mb-6">BROWSE PAST WORKSHOPS</h3>
         
-        {[1, 2, 3].map((item) => (
-          <div key={item} className="flex flex-col md:flex-row gap-6 p-6 border border-foreground/10 bg-background hover:border-primary/50 transition-colors group">
-            <div className="w-full md:w-48 aspect-video bg-surface flex items-center justify-center relative overflow-hidden flex-shrink-0">
-               <FileText className="text-foreground/20 w-12 h-12" />
-               <div className="absolute bottom-2 right-2 bg-background/80 px-2 py-1 text-xs font-mono text-foreground/70 backdrop-blur-sm border border-foreground/10">PDF</div>
-            </div>
-            
-            <div className="flex-grow flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="bg-secondary/20 text-secondary px-2 py-1 text-xs font-bold uppercase tracking-wider">14th Workshop (2023)</span>
-                  <span className="text-foreground/50 text-sm font-mono">ID: HEMS-23-{item}04</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { id: 14, year: 2022, title: "14th HEMS Workshop", url: "/archive/2022", isInternal: true },
+            { id: 13, year: 2019, title: "13th HEMS Workshop", url: "/archive/2019", isInternal: true },
+            { id: 12, year: 2018, title: "12th HEMS Workshop", url: "https://www.hems-workshop.org/12thWS_EUROHEMS/12thWS.html" },
+            { id: 11, year: 2017, title: "11th HEMS Workshop", url: "https://www.hems-workshop.org/11thWS/11thWS.html" },
+            { id: 10, year: 2015, title: "10th HEMS Workshop", url: "https://www.hems-workshop.org/10thWS/10thWS.html" },
+            { id: 9, year: 2013, title: "9th HEMS Workshop", url: "https://www.hems-workshop.org/9thWS/9thWS.html" },
+            { id: 8, year: 2011, title: "8th HEMS Workshop", url: "https://www.hems-workshop.org/8thWS/8thWS.html" },
+            { id: 7, year: 2009, title: "7th HEMS Workshop", url: "https://www.hems-workshop.org/7thWS/7thWS.html" },
+            { id: 6, year: 2007, title: "6th HEMS Workshop", url: "https://www.hems-workshop.org/6thWS/6thWS.html" },
+            { id: 5, year: 2005, title: "5th HEMS Workshop", url: "https://www.hems-workshop.org/5thWS/5thWS.html" },
+            { id: 4, year: 2003, title: "4th HEMS Workshop", url: "https://www.hems-workshop.org/4thWS/4thWS.html" },
+            { id: 3, year: 2002, title: "3rd HEMS Workshop", url: "https://www.hems-workshop.org/3rdWS/3rdWS.html" },
+            { id: 2, year: 2001, title: "2nd HEMS Workshop", url: "https://www.hems-workshop.org/2ndWS/2ndWS.html" },
+            { id: 1, year: 1999, title: "1st HEMS Workshop", url: "https://www.hems-workshop.org/1stWS/1stWS.html" }
+          ].map((workshop) => (
+            <a 
+              key={workshop.id} 
+              href={workshop.url}
+              target={workshop.isInternal ? "_self" : "_blank"}
+              rel={workshop.isInternal ? "" : "noopener noreferrer"}
+              className="flex flex-col p-6 border border-foreground/10 bg-surface hover:border-primary/50 transition-colors group rounded-lg shadow-sm hover:shadow-md"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-10 h-10 bg-primary/10 text-primary flex items-center justify-center rounded-lg font-bold font-mono">
+                  {workshop.year}
                 </div>
-                <h4 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Development of a Ruggedized Ion Trap for Deep Sea Vents</h4>
-                <p className="text-foreground/70 text-sm mb-4 line-clamp-2">
-                  This paper discusses the engineering challenges and solutions for maintaining pressure integrity while operating a miniaturized ion trap mass spectrometer near abyssal hydrothermal vents.
-                </p>
+                <FileText className="text-foreground/20 group-hover:text-primary/50 transition-colors" />
               </div>
-              
-              <div className="flex items-center justify-between border-t border-foreground/10 pt-4 mt-2">
-                <span className="text-sm text-foreground/80 font-medium">Dr. J. Smith, et al.</span>
-                <button className="flex items-center gap-2 text-primary hover:text-primary/80 font-mono text-sm font-bold transition-colors">
-                  <Download size={16} /> DOWNLOAD
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+              <h4 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{workshop.title}</h4>
+              <p className="text-foreground/60 text-sm mt-auto">
+                View legacy archive program, materials, and participants list.
+              </p>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 # Architectural Handover Document: The AI Software Factory
-**Date:** October 2023 / Workspace Version: 2.0
+**Date:** April 2026 / Workspace Version: 2.0
 **Context:** This document serves as the architectural history and operational philosophy of a highly disciplined, Multi-Agent State Machine environment. It outlines the decisions, rules, and structures designed to facilitate a single-node Agile Release Train (ART) focused on scientific and full-stack development.
 
 *Note to receiving AI Agent: The human user will provide the raw contents of the `.md` files referenced below. Use this document purely to understand the system's underlying logic, constraints, and operational paradigms.*
