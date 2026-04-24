@@ -1,0 +1,334 @@
+{
+  "year": 2007,
+  "ordinal": "6th",
+  "dates": "September 17-20, 2007",
+  "venue": "Cocoa Beach",
+  "address": "Cocoa Beach, FL",
+  "resources": [
+    {
+      "label": "Program Book",
+      "url": "https://www.hems-workshop.org/6thWS/6thprogrampresentations1.html",
+      "icon": "FileText"
+    }
+  ],
+  "sponsors": [],
+  "schedule": [
+    {
+      "title": "Mon, 9/17 | Travel Day",
+      "items": [
+        {
+          "type": "event",
+          "time": "7:00 p.m.",
+          "title": "Welcome Reception at Holiday Inn Cocoa Beach",
+          "subtitle": "Tiki Lawn"
+        }
+      ]
+    },
+    {
+      "title": "Tue,9/18 | HEMS Workshop",
+      "items": [
+        {
+          "type": "event",
+          "time": "7:30 a.m.",
+          "title": "Continental Breakfast , HolidayInn Manatee Ball Room",
+          "subtitle": ""
+        },
+        {
+          "type": "event",
+          "time": "8:30 a.m.",
+          "title": "Welcoming Remarks",
+          "subtitle": "Technical Session I: Instrumentation - Novel MS Designs"
+        },
+        {
+          "type": "session",
+          "time": "9:00 a.m.",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "9:00 a.m.",
+              "title": "\"Novel Ion Traps using Planar Resistive Electrodes: Implications for Miniaturized Mass Analyzers\" Daniel Austin, Brigham Young University Abstract",
+              "authors": "",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/austin.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Austin.pdf"
+            },
+            {
+              "time": "9:30 a.m.",
+              "title": "\"The Gated Electrostatic Mass Spectrometer \" Fred A. Herrero, NASA Goddard Space Flight Center Abstract",
+              "authors": "",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Diaz.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Yang.pdf"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "10:00 a.m.",
+          "title": "Mid-morning Break",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "10:30 a.m.",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "10:30 a.m.",
+              "title": "\"MEMS Assembled Ion Optical Devices: Current Technology and a Look at Advantages and Disadvantages\" Guido F. Verbeck IV, University of North Texas Abstract",
+              "authors": "",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Verbeck.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Gao.pdf"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "11:00 a.m.",
+          "title": "\"A",
+          "subtitle": "Single Chip Mass Spectrometer in MEMS Technology\" Jan-Peter Hauschild, Hamburg University of Technology Student Travel Award Recipient Abstract"
+        },
+        {
+          "type": "event",
+          "time": "11:30 a.m.",
+          "title": "\"A",
+          "subtitle": "Microfabricated Cylindrical Ion Trap Array for Batch Production of Small Chemical Sensors\" Friso van Amerom, University of South Florida and SRI International Abstract"
+        },
+        {
+          "type": "event",
+          "time": "12:00 p.m.",
+          "title": "Workshop Lunch,",
+          "subtitle": "Holiday Inn Manatee Ball Room"
+        },
+        {
+          "type": "event",
+          "time": "1:30 p.m.",
+          "title": "Poster",
+          "subtitle": "Session, Holiday Inn Manatee Ball Room \"First principles optimization of mass producible microscaled linear quadrupoles for operation in higher stability regions\" Kerry Cheung, Massachusetts Institute of Technology, Department"
+        },
+        {
+          "type": "session",
+          "time": "3:00 p.m.",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "3:00 p.m.",
+              "title": "\"Development",
+              "authors": "of Miniature Mass Spectrometry for In-Situ Characterization of the Environment\" Frants R. Lauritsen, University of Copenhagen Abstract",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Lauritsen.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Hemond.pdf"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "3:30 p.m.",
+          "title": "\"The",
+          "subtitle": "Development of a Vector Neutral Spectrometer for Space Environment Measurements\" Erik Syrstad, Space Dynamics Laboratory Abstract"
+        },
+        {
+          "type": "event",
+          "time": "4:00 p.m.",
+          "title": "\"Mass",
+          "subtitle": "Spectrometer-based Instrument for Volcanic Gas Monitoring\" Gary M. McMurtry, SOEST, University of Hawaii Abstract"
+        },
+        {
+          "type": "session",
+          "time": "4:30 p.m.",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "4:30 p.m.",
+              "title": "Evening Free",
+              "authors": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Wed,",
+      "items": [
+        {
+          "type": "event",
+          "time": "7:30 a.m.",
+          "title": "Full Breakfast, Holiday",
+          "subtitle": "Inn Manatee Ball Room Technical Session III: Field Applications - Water"
+        },
+        {
+          "type": "event",
+          "time": "9:00 a.m.",
+          "title": "\"Field",
+          "subtitle": "Testing of the Nereus Network\" Harry Hemond, MIT Abstract"
+        },
+        {
+          "type": "session",
+          "time": "9:30 a.m.",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "9:30 a.m.",
+              "title": "\"Short-term",
+              "authors": "Oxidation-Reduction Processes within a Hypoxic Estuary, Using an In Situ Mass Spectrometer\" Itziar Tueros, AZTI-Tecnalia, Marine Research Division Abstract",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Tueros.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Tueros.pdf"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "10:00 a.m.",
+          "title": "Group Photo / Mid-morning Break",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "10:45 a.m.",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "10:45 a.m.",
+              "title": "\"Underwater",
+              "authors": "Mass Spectrometry: Developments and Calibration\" Ryan J. Bell, SRI International Abstract",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Bell.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Cairns.pdf"
+            },
+            {
+              "time": "11:15 a.m.",
+              "title": "\"Application",
+              "authors": "of the In-Spectr 200 Membrane Introduction Mass Spectrometer for Measurements of Methane in Lake Constance (Germany) and the Western Baltic Sea\" Michael Schluter, Alfred-Wegener-Institute for Polar and Marine Research Abstract"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "11:45 a.m.",
+          "title": "\"Mass",
+          "subtitle": "Spectrometer for Mars Phoenix Lander\" John H. Hoffman, University of Texas at Dallas Abstract"
+        },
+        {
+          "type": "event",
+          "time": "12:15 p.m.",
+          "title": "Lunch on your own",
+          "subtitle": "Technical Session IV: Instrumentation - Interfaces"
+        },
+        {
+          "type": "event",
+          "time": "2:30 p.m.",
+          "title": "\"Thermal",
+          "subtitle": "Desorption Inletting for Portable Mass Spectrometer\" Stuart Cairns, DSTL Abstract"
+        },
+        {
+          "type": "session",
+          "time": "3:00 p.m.",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "3:00 p.m.",
+              "title": "\"Implementation",
+              "authors": "of DART and DESI Ionization of a Fieldable Mass Spectrometer\" Mitch Wells, ICx Griffin Analytical Abstract",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Wells.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Wells.pdf"
+            },
+            {
+              "time": "3:30 p.m.",
+              "title": "\"Characterization",
+              "authors": "of a Multi-Port Inlet on a Rugged Mass Spectrometer\" Garth Patterson,  ICx Griffin Analytical Abstract",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Patterson.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Gao.pdf"
+            },
+            {
+              "time": "4:00 p.m.",
+              "title": "\"Mini 11 Handheld",
+              "authors": "Mass Spectrometer with Glow Discharge Ion Source and Atmospheric Pressure Interface\" Liang Gao, Purdue University Department of Chemistry Abstract"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "4:30 p.m.",
+          "title": "Free Time",
+          "subtitle": ""
+        },
+        {
+          "type": "event",
+          "time": "6:00 p.m.",
+          "title": "Meet to Catch Bus for Workshop Dinner at",
+          "subtitle": "the KSC Visitors Center"
+        },
+        {
+          "type": "event",
+          "time": "11:00 p.m.",
+          "title": "Last Bus Returns from Dinner",
+          "subtitle": ""
+        }
+      ]
+    },
+    {
+      "title": "Thu,",
+      "items": [
+        {
+          "type": "event",
+          "time": "7:30 a.m.",
+          "title": "Continental Breakfast , Holiday",
+          "subtitle": "Inn Manatee Ball Room Technical Session V: Instrumentation - Miniaturization"
+        },
+        {
+          "type": "session",
+          "time": "8:30 a.m.",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "8:30 a.m.",
+              "title": "\"Evaluation",
+              "authors": "of Commercial Mass Spectrometers for NASA Applications\" J. Andres Diaz Abstract",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Diaz.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Kline-Schoder.pdf"
+            },
+            {
+              "time": "9:00 a.m.",
+              "title": "\"Quadrupole Miniaturization:",
+              "authors": "Measured Performance for Different Size Quadrupoles\" Randall Pedder, Ardara Technologies L.P Abstract"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "9:30 a.m.",
+          "title": "\"Miniature",
+          "subtitle": "High Vacuum Pumps for Analytical Instruments\" Robert Kline-Schoder, Creare, Inc. Abstract"
+        },
+        {
+          "type": "event",
+          "time": "10:00 a.m.",
+          "title": "Mid-morning Break",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "10:30 a.m.",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "10:30 a.m.",
+              "title": "\"Hand-Portable",
+              "authors": "GC-TMS Instrument for Measurement of Chemical Agents and Hazardous Compounds in Harsh Environments\" Douglas W. Later, Torion Technologies Abstract",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Later.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Later.pdf"
+            },
+            {
+              "time": "11:00 a.m.",
+              "title": "\"Development",
+              "authors": "of a Palm Portable Mass Spectrometer\" Mo Yang, SamYang Chemical Co. Abstract",
+              "presentationUrl": "https://www.hems-workshop.org/6thWS/Talks/Yang.pdf",
+              "abstractUrl": "https://www.hems-workshop.org/6thWS/Abstracts/Yang.pdf"
+            },
+            {
+              "time": "11:30 a.m.",
+              "title": "Workshop ends",
+              "authors": "========================================"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

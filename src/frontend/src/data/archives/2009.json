@@ -1,0 +1,276 @@
+{
+  "year": 2009,
+  "ordinal": "7th",
+  "dates": "September 21-24, 2009",
+  "venue": "Fess Parker's Doubletree Resort",
+  "address": "Santa Barbara, CA",
+  "resources": [
+    {
+      "label": "Program Book",
+      "url": "https://www.hems-workshop.org/7thWS/HEMS%207th%20Program.pdf",
+      "icon": "Download"
+    }
+  ],
+  "sponsors": [],
+  "schedule": [
+    {
+      "title": "Workshop Schedule",
+      "items": [
+        {
+          "type": "event",
+          "time": "7:00",
+          "title": "Breakfast",
+          "subtitle": ""
+        },
+        {
+          "type": "event",
+          "time": "8:40",
+          "title": "Welcoming Remarks Ben Gardner",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "9:00",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "9:00",
+              "title": "The ULISSES Project: Utilization In-Situ Airborne MS",
+              "authors": "based Instrumentation for the Study of Gaseous Emissions at Active Volcanoes J. Andres Diaz 8"
+            },
+            {
+              "time": "9:30",
+              "title": "Discontinuous Atmospheric Pressure Interface for",
+              "authors": "Miniature Mass Spectrometers Liang Gao 9"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "10:00",
+          "title": "Mid-morning Break",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "10:30",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "10:30",
+              "title": "Hot Cell MIMS: Direct analysis of semi-VOCs liberated",
+              "authors": "from practically any type of solid sample Frants R. Lauritsen 10"
+            },
+            {
+              "time": "11:00",
+              "title": "Magnet portable mass spectrometer with membrane",
+              "authors": "inlet system  Stanislav Vlasov 11"
+            },
+            {
+              "time": "11:30",
+              "title": "A Compact, Stand-Alone, Integrated MS/Vacuum",
+              "authors": "Package Philip S. Berger 12"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "12:00",
+          "title": "Workshop Lunch",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "1:30",
+          "title": "Poster Session see abstracts 32-46",
+          "talks": [
+            {
+              "time": "3:00",
+              "title": "Switched Ferroelectric Plasma Ionizer (SwiFerr):",
+              "authors": "A Robust Ion Source for Mass Spectrometry in Harsh Environments  Evan L. Neidholdt  13"
+            },
+            {
+              "time": "3:30",
+              "title": "Improving the Measurement Accuracy of Water Partial",
+              "authors": "Pressure Using the Major Constituent Analyzer Ben D. Gardner 14"
+            },
+            {
+              "time": "4:00",
+              "title": "E2M – The Enhanced Environmental Mass",
+              "authors": "Spectrometer: Case Studies using the Mobile MS  Franziska Lange 15 Free Evening 5 Wednesday, September 23 Time Topic Speaker Page #"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "7:00",
+          "title": "Breakfast",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "8:30",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "8:30",
+              "title": "Mars Phoenix Lander Thermal and Evolved Gas",
+              "authors": "Analyzer John H. Hoffman 16"
+            },
+            {
+              "time": "9:00",
+              "title": "Progress in Two-plate Ion Trap Mass Analyzers Daniel Austin 17",
+              "authors": ""
+            },
+            {
+              "time": "9:30",
+              "title": "Chip-Scale Quadrupole Mass Filters for a Micro-Gas",
+              "authors": "Analyzer Kerry Cheung 18"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "10:00",
+          "title": "Group Photo/Mid-morning Break",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "10:30",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "10:30",
+              "title": "GUARDION™-7 Hand-Portable Gas Chromatograph-",
+              "authors": "Toroid Ion Trap Mass Spectrometer (GC-TMS): Recent Enhancements and New Applications  Doug Later 19"
+            },
+            {
+              "time": "11:00",
+              "title": "High-Performance, Militarized Mass Spectrometer",
+              "authors": "System  Jack Syage 20"
+            },
+            {
+              "time": "11:30",
+              "title": "Autonomous Light-weight Integrated Direct Sampling",
+              "authors": "Mass Spectrometer for TIC and CWA Detection Mitch Wells 21"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "12:00",
+          "title": "Free for Lunch (not provided)",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "1:30",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "1:30",
+              "title": "Modeling the Orion Air Monitor David E.",
+              "authors": "Burchfield 22"
+            },
+            {
+              "time": "2:00",
+              "title": "Mars Organic Molecule Analyzer (MOMA): Instrument",
+              "authors": "Concepts and Results Luann Becker 23"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "2:30",
+          "title": "Mid-afternoon Break",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "3:00",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "3:00",
+              "title": "Miniature QMF and LIT using LBMT for HEMS",
+              "authors": "Applications Stephen Taylor 24"
+            },
+            {
+              "time": "3:30",
+              "title": "Fabrication and Testing of Micro-cylindrical",
+              "authors": "Ion Trap Arrays for Miniaturized Mass Spectrometer Development R. Timothy Short 25"
+            },
+            {
+              "time": "4:00",
+              "title": "Achievable Resolution and Efficiency of Tandem Mass",
+              "authors": "Spectrometry for Sub-mm Ion Traps  Guido F. Verbeck  26"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "6:30",
+          "title": "Workshop Dinner  @ Ty Warner Sea Center, Stearns Wharf  7",
+          "subtitle": "6 Thursday, September 24 Time Topic Speaker Page #"
+        },
+        {
+          "type": "event",
+          "time": "7:00",
+          "title": "Breakfast",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "8:30",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "8:30",
+              "title": "Status of the Rotating Electric Field Ion Mass",
+              "authors": "Spectrograph (REFIMS) and Its Use in the Space Environment James H. Clemmons 27"
+            },
+            {
+              "time": "9:00",
+              "title": "A Transportable Double-Focusing  Mass Spectrometer Gottfried Kibelka 28",
+              "authors": ""
+            },
+            {
+              "time": "9:30",
+              "title": "Mobile GC/MS and Sampling Tools for Continuous Air",
+              "authors": "Monitoring Garth Patterson 29"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "time": "10:00",
+          "title": "Mid-morning Break",
+          "subtitle": ""
+        },
+        {
+          "type": "session",
+          "time": "10:30",
+          "title": "Technical Session",
+          "talks": [
+            {
+              "time": "10:30",
+              "title": "Redesign of the Construction and Increase in the",
+              "authors": "Performance of the Peripheral Devices of a Micro Mass Spectrometer  Régulo Miguel Ramírez Wong 30"
+            },
+            {
+              "time": "11:00",
+              "title": "Influence of Fast Temperature Program Rate and Fast",
+              "authors": "Linear Velocity on GC-MS Analysis of Chemical Warfare Agent Degradation Products Philip Smith 31"
+            },
+            {
+              "time": "11:30",
+              "title": "Program Survey and Close",
+              "authors": "Workshop Ends 7 Workshop Dinner: Ty Warner Sea Center Located on Stearns Wharf at the end of State Street, the Ty Warner Sea Center is owned and operated by the Santa Barbara Museum of Natural History  and offers"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

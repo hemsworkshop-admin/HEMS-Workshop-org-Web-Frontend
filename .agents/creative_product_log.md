@@ -1,3 +1,4 @@
 # Creative Product Log
 
-- **[2026-04-23] Product Value Insight:** By standardizing the 2022 visual structure as a template for 2019, we have established an infinitely scalable UI pipeline. This "template" approach strips away decades of inconsistent legacy HTML formatting, converting disparate historical data into a unified, highly legible dataset. This positions the archive not just as a static repository, but as a clean data layer that could eventually be plugged directly into an LLM context window or semantic search engine for attendees.
+## 2026-04-24 Product Value Insight (@prod)
+The successful decoupling of legacy workshop content from the UI layer means the entire historical HEMS archive can now be dynamically repurposed for other media formats, headless APIs, or machine-readable metadata pipelines with zero additional friction. The transition from flat static HTML to a semantic, data-driven JSON schema not only standardizes the user interface but significantly enhances the long-term portability of the society's research assets.

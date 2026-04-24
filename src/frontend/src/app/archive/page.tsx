@@ -48,18 +48,18 @@ export default function Archive() {
           {[
             { id: 14, year: 2022, title: "14th HEMS Workshop", url: "/archive/2022", isInternal: true },
             { id: 13, year: 2019, title: "13th HEMS Workshop", url: "/archive/2019", isInternal: true },
-            { id: 12, year: 2018, title: "12th HEMS Workshop", url: "https://www.hems-workshop.org/12thWS_EUROHEMS/12thWS.html" },
-            { id: 11, year: 2017, title: "11th HEMS Workshop", url: "https://www.hems-workshop.org/11thWS/11thWS.html" },
-            { id: 10, year: 2015, title: "10th HEMS Workshop", url: "https://www.hems-workshop.org/10thWS/10thWS.html" },
-            { id: 9, year: 2013, title: "9th HEMS Workshop", url: "https://www.hems-workshop.org/9thWS/9thWS.html" },
-            { id: 8, year: 2011, title: "8th HEMS Workshop", url: "https://www.hems-workshop.org/8thWS/8thWS.html" },
-            { id: 7, year: 2009, title: "7th HEMS Workshop", url: "https://www.hems-workshop.org/7thWS/7thWS.html" },
-            { id: 6, year: 2007, title: "6th HEMS Workshop", url: "https://www.hems-workshop.org/6thWS/6thWS.html" },
-            { id: 5, year: 2005, title: "5th HEMS Workshop", url: "https://www.hems-workshop.org/5thWS/5thWS.html" },
-            { id: 4, year: 2003, title: "4th HEMS Workshop", url: "https://www.hems-workshop.org/4thWS/4thWS.html" },
-            { id: 3, year: 2002, title: "3rd HEMS Workshop", url: "https://www.hems-workshop.org/3rdWS/3rdWS.html" },
-            { id: 2, year: 2001, title: "2nd HEMS Workshop", url: "https://www.hems-workshop.org/2ndWS/2ndWS.html" },
-            { id: 1, year: 1999, title: "1st HEMS Workshop", url: "https://www.hems-workshop.org/1stWS/1stWS.html" }
+            { id: 12, year: 2018, title: "12th HEMS Workshop", url: "/archive/2018", isInternal: true },
+            { id: 11, year: 2017, title: "11th HEMS Workshop", url: "/archive/2017", isInternal: true },
+            { id: 10, year: 2015, title: "10th HEMS Workshop", url: "/archive/2015", isInternal: true },
+            { id: 9, year: 2013, title: "9th HEMS Workshop", url: "/archive/2013", isInternal: true },
+            { id: 8, year: 2011, title: "8th HEMS Workshop", url: "/archive/2011", isInternal: true },
+            { id: 7, year: 2009, title: "7th HEMS Workshop", url: "/archive/2009", isInternal: true },
+            { id: 6, year: 2007, title: "6th HEMS Workshop", url: "/archive/2007", isInternal: true },
+            { id: 5, year: 2005, title: "5th HEMS Workshop", url: "/archive/2005", isInternal: true },
+            { id: 4, year: 2003, title: "4th HEMS Workshop", url: "/archive/2003", isInternal: true },
+            { id: 3, year: 2002, title: "3rd HEMS Workshop", url: "/archive/2002", isInternal: true },
+            { id: 2, year: 2001, title: "2nd HEMS Workshop", url: "/archive/2001", isInternal: true },
+            { id: 1, year: 1999, title: "1st HEMS Workshop", url: "/archive/1999", isInternal: true }
           ].map((workshop) => (
             <a 
               key={workshop.id} 
