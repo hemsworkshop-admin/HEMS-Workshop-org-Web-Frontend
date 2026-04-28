@@ -1,49 +1,40 @@
-# Administrative Files Ingestion
+# Pipeline Deployment for Workshop 14 (2022)
 
-We will add the ability to automatically download the Workshop Program and Participant List via legacy URL pasting in the Manager Metadata section. We will also update the workshop frontend template to dynamically link these files in the "Workshop Resources" section and remove the deprecated "Corporate Sponsors" grid.
+We are ready to deploy the initial version of the modernized HEMS website and the Workshop 14 assets to a live staging environment. This will allow us to verify the Serverless-First architecture online before porting the actual `hems-workshop.org` domain.
 
 ## User Review Required
 
 > [!IMPORTANT]
-> @bo: I will remove the "Legacy Corporate Sponsors" grid from the workshop template.
-> For the new "Workshop Resources", when you click them on the live site, should they link directly to the **Legacy URLs** (e.g., `http://hems-workshop.org/...`), or should they link to a local path (if so, where are the downloaded files hosted in production)? I will map them to the legacy URLs for now, but let me know if they need to point to a GCloud bucket or local API path instead!
+> @bo: To stand up this pipeline, I need to know your preference on hosting the assets and deploying the code.
+> 1. **Vercel Account:** Do you have a Vercel account ready to authenticate via the CLI? I will run `npx vercel login` and `npx vercel link` to connect this repository to a free `hems-website.vercel.app` staging URL.
+> 2. **Google Cloud Storage (GCS):** The architecture plan calls for GCS to host the PDFs. Do you have a GCP project and the `gcloud` CLI installed locally? If not, we can either:
+>    - Option A: You set up a GCP bucket manually and give me the bucket name.
+>    - Option B: We use **Vercel Blob Storage** (built into Vercel) for now since it's instantly available without leaving the CLI.
+> 
+> Let me know how you want to proceed with the storage bucket!
 
 ## Proposed Changes
 
 ---
 
-### Backend API
+### Step 1: Storage Provisioning & Syncing
+- Create/connect to the remote storage bucket (GCS or Vercel Blob).
+- Sync the local `docs/archives_translation/proceedings/14th/` directory to the remote bucket.
+- This will generate public URLs for all the PDFs and thumbnails.
 
-#### [MODIFY] `src/frontend/src/app/api/manager/save/route.ts`
-- Update the translation logic to populate `yearData.resources`.
-- If `ws.program_url` exists, push a resource object: `{ label: "Workshop Program", icon: "FileText", url: ws.program_url }`.
-- If `ws.participant_list_url` exists, push a resource object: `{ label: "Participant List", icon: "Users", url: ws.participant_list_url }`.
+### Step 2: Update Data Manifests
+- Create a one-off migration script to update `src/frontend/src/data/archives/2022.json`.
+- Replace all legacy `url` and `presentationUrl` references with the new permanent storage URLs.
 
----
-
-### Frontend Manager UI
-
-#### [MODIFY] `src/frontend/src/app/manager/page.tsx`
-- In the Metadata section, add two new input fields with `onPaste` handlers:
-  - "Legacy Program URL"
-  - "Legacy Participant List URL"
-- Leverage the existing `/api/manager/download-legacy` endpoint.
-- Downloading these will categorize them under "Administrative" and save them to `docs/archives_translation/proceedings/{wsNum}th/Administrative/`.
-- Maintain a local state (via `useRef` and `useState` for downloading indicators) similar to how we handled `PresentationsManager.tsx`.
-
----
-
-### Frontend Template
-
-#### [MODIFY] `src/frontend/src/app/archive/[year]/page.tsx`
-- Locate the `<div className="flex flex-wrap gap-4">` under "Workshop Resources".
-- Map through `data.resources` to dynamically render the buttons with their respective icons (`FileText`, `Users`).
-- Completely remove the `Legacy Corporate Sponsors` grid section (lines ~101-118).
+### Step 3: Vercel Deployment
+- Build and deploy the Next.js frontend to Vercel.
+- The `manager` API routes will be excluded or secured to prevent public access.
+- The site will be instantly accessible via a temporary `.vercel.app` URL.
 
 ## Verification Plan
 
 ### Manual Verification
-1. Open the Manager UI.
-2. In the Metadata section for a workshop, paste a Program PDF URL. Verify it turns yellow (Downloading) then green, and successfully saves `_Program.pdf` in the `Administrative` folder.
-3. Click "Save and Present on Local Host".
-4. The template will open. Verify that the "Workshop Resources" section now displays the "Workshop Program" button and that the Corporate Sponsors section is completely gone.
+1. I will provide the `.vercel.app` URL.
+2. We will navigate to the 2022 (14th) Workshop Archive.
+3. We will verify that clicking "Program Download", presentations, and abstracts instantly streams the PDF from the edge storage bucket.
+4. We will verify the site speed and mobile responsiveness.

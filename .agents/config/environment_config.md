@@ -9,10 +9,10 @@
 ---
 
 ## 1. Version Control (Git)
-*   **Repository Name:** `hems-website-frontend`
-*   **Remote URL:** [https://github.com/rbellAdapt/hems-website-frontend](https://github.com/rbellAdapt/hems-website-frontend)
+*   **Account Name:** `hemsworkshop-admin`
+*   **Repository Name:** `HEMS-Workshop-org-Web-Frontend`
+*   **Remote URL:** \[https://github.com/hemsworkshop-admin/HEMS-Workshop-org-Web-Frontend.git\]
 *   **Primary Branch:** `main`
-*   **Local Root Path:** `src/frontend/`
 
 ---
 
