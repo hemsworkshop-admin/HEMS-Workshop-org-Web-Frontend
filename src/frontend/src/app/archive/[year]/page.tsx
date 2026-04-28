@@ -62,57 +62,89 @@ export default async function WorkshopArchive({ params }: { params: Promise<{ ye
             <div className="flex items-start gap-3">
               <MapPin className="text-secondary mt-1 flex-shrink-0" size={20} />
               <span>
-                {data.venue}<br/>
+                {data.venue_url ? (
+                  <a href={data.venue_url} target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline transition-colors font-bold">
+                    {data.venue}
+                  </a>
+                ) : (
+                  <span className="font-bold">{data.venue}</span>
+                )}
+                <br/>
                 <span className="text-sm font-normal text-foreground/50">{data.address}</span>
               </span>
             </div>
           </div>
 
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-foreground/50 mb-4">Workshop Resources</h3>
-            <div className="flex flex-wrap gap-4">
-              {data.resources?.map((res: any, idx: number) => (
-                <a 
-                  key={idx}
-                  href={res.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={`flex items-center gap-2 bg-surface border border-foreground/10 px-4 py-2 rounded-md transition-colors text-sm font-bold ${
-                    idx === 0 ? 'hover:border-secondary hover:text-secondary' : 'hover:border-primary hover:text-primary'
-                  }`}
-                >
-                  {res.icon === 'Download' && <Download size={16} />}
-                  {res.icon === 'Users' && <Users size={16} />}
-                  {res.icon === 'Building' && <Building size={16} />}
-                  {!['Download', 'Users', 'Building'].includes(res.icon) && <Download size={16} />}
-                  {res.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Legacy Corporate Sponsors Grid */}
-          {data.sponsors && data.sponsors.length > 0 && (
-            <div className="mt-8 border-t border-foreground/10 pt-8">
-              <h3 className="text-sm font-bold uppercase tracking-widest text-foreground/50 mb-6">Legacy Corporate Sponsors</h3>
-              <div className="flex flex-wrap gap-8 items-center opacity-60 hover:opacity-100 transition-opacity duration-300">
-                {data.sponsors.map((sponsor: any, idx: number) => (
-                  <Image 
+          {data.resources && data.resources.length > 0 && (
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-foreground/50 mb-4">Workshop Resources</h3>
+              <div className="flex flex-wrap gap-4">
+                {data.resources.map((res: any, idx: number) => (
+                  <a 
                     key={idx}
-                    src={sponsor.image} 
-                    alt={sponsor.name} 
-                    width={140} 
-                    height={40} 
-                    className="grayscale hover:grayscale-0 transition-all duration-300 object-contain h-10 w-auto" 
-                  />
+                    href={res.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`flex items-center gap-2 bg-surface border border-foreground/10 px-4 py-2 rounded-md transition-colors text-sm font-bold ${
+                      idx === 0 ? 'hover:border-secondary hover:text-secondary' : 'hover:border-primary hover:text-primary'
+                    }`}
+                  >
+                    {res.icon === 'Download' && <Download size={16} />}
+                    {res.icon === 'Users' && <Users size={16} />}
+                    {res.icon === 'Building' && <Building size={16} />}
+                    {res.icon === 'FileText' && <FileText size={16} />}
+                    {!['Download', 'Users', 'Building', 'FileText'].includes(res.icon) && <Download size={16} />}
+                    {res.label}
+                  </a>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {data.sponsors && data.sponsors.length > 0 && (
+            <div className="mt-12 border-t border-foreground/10 pt-8">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-foreground/50 mb-6 flex items-center gap-2">
+                <Building size={16} /> Corporate Sponsors
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[...data.sponsors].sort((a, b) => (parseInt(a.year) || 9999) - (parseInt(b.year) || 9999)).map((sponsor: any, idx: number) => {
+                  const sponsorYear = parseInt(sponsor.year);
+                  const yearsSince = sponsorYear ? new Date().getFullYear() - sponsorYear : 0;
+                  return (
+                    <a 
+                      key={idx}
+                      href={sponsor.url || '#'}
+                      target={sponsor.url ? "_blank" : undefined}
+                      rel={sponsor.url ? "noopener noreferrer" : undefined}
+                      className="bg-surface border border-foreground/10 p-4 rounded-lg flex items-center gap-4 hover:border-primary hover:bg-primary/5 transition-all group"
+                    >
+                      <div className="bg-white rounded p-2 h-16 w-24 flex items-center justify-center flex-shrink-0 shadow-inner">
+                        <Image 
+                          src={sponsor.image} 
+                          alt={sponsor.name} 
+                          width={80} 
+                          height={40} 
+                          className="object-contain max-h-full max-w-full grayscale group-hover:grayscale-0 transition-all duration-300" 
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-bold text-foreground truncate group-hover:text-primary transition-colors">{sponsor.name}</h4>
+                        {sponsorYear ? (
+                          <div className="text-xs font-bold text-secondary/80 mt-1 uppercase tracking-wider">
+                            {yearsSince > 0 ? `${yearsSince} Year Sponsor` : 'New Sponsor'}
+                          </div>
+                        ) : null}
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
             </div>
           )}
         </div>
 
         {/* Technical Program Inline */}
-        <div className="mb-12">
+        <div id="technical-program" className="mb-12">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
             <FileText className="text-primary" /> Technical Program
           </h2>
@@ -151,23 +183,40 @@ export default async function WorkshopArchive({ params }: { params: Promise<{ ye
                             <div className="mt-3 divide-y divide-primary/10">
                               
                               {item.talks?.map((talk: any, tIdx: number) => {
-                                const authorParts = talk.authors ? talk.authors.split(',') : [];
-                                const firstAuthor = authorParts.length > 0 ? authorParts[0] : '';
-                                const restAuthors = authorParts.length > 1 ? ',' + authorParts.slice(1).join(',') : '';
+                                let authorElements = null;
+                                
+                                if (Array.isArray(talk.authors)) {
+                                  authorElements = talk.authors.map((a: any, i: number) => (
+                                    <span key={i}>
+                                      {a.isPresenter ? <span className="underline">{a.name}</span> : a.name}
+                                      {i < talk.authors.length - 1 ? ', ' : ''}
+                                    </span>
+                                  ));
+                                } else {
+                                  // Fallback for legacy comma-separated string if not migrated
+                                  const authorParts = typeof talk.authors === 'string' ? talk.authors.split(',') : [];
+                                  const firstAuthor = authorParts.length > 0 ? authorParts[0] : '';
+                                  const restAuthors = authorParts.length > 1 ? ',' + authorParts.slice(1).join(',') : '';
+                                  authorElements = (
+                                    <>
+                                      {firstAuthor && <span className="underline">{firstAuthor}</span>}
+                                      {restAuthors}
+                                    </>
+                                  );
+                                }
 
                                 return (
                                   <div key={tIdx} className="py-3 first:pt-0 last:pb-0">
-                                    <p className="text-sm font-bold">
-                                      <span className="text-foreground/50 font-mono font-normal mr-2">{talk.time}</span>
+                                    <p className="text-sm font-bold flex items-start gap-2">
+                                      {talk.time && <span className="text-foreground/50 font-mono font-normal flex-shrink-0 mt-0.5">{talk.time}</span>}
                                       {talk.presentationUrl ? (
-                                        <a href={talk.presentationUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{talk.title}</a>
+                                        <a href={talk.presentationUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline break-words flex-1 leading-snug">{talk.title}</a>
                                       ) : (
-                                        <span className="text-primary">{talk.title}</span>
+                                        <span className="text-foreground/60 break-words flex-1 leading-snug">{talk.title}</span>
                                       )}
                                     </p>
                                     <p className="text-sm text-foreground/70 mt-1">
-                                      {firstAuthor && <span className="underline">{firstAuthor}</span>}
-                                      {restAuthors}
+                                      {authorElements}
                                     </p>
                                     {talk.abstractUrl && (
                                       <p className="text-xs mt-1">

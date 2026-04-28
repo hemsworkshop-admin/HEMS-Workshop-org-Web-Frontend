@@ -32,3 +32,20 @@ https://www.hems-workshop.org/4thWS/4thprogrampresentations.html
 https://www.hems-workshop.org/3rdWS/3rdprogrampresentations.html
 https://www.hems-workshop.org/2ndWS/2hems_program.pdf
 https://www.hems-workshop.org/1stWS/1hems_program.pdf
+
+
+
+# Program Summary links with Posters
+https://www.hems-workshop.org/14thWS/quicklinkalpha.html
+https://www.hems-workshop.org/13thWS/quicklinkalpha.html
+
+https://www.hems-workshop.org/11thWS/quicklinkalpha.html
+https://www.hems-workshop.org/10thWS/quicklinkalpha.html
+https://www.hems-workshop.org/9thWS/quicklinkalpha.html
+https://www.hems-workshop.org/8thWS/quicklinkalpha.html
+https://www.hems-workshop.org/7thWS/quicklinkalpha1.html
+https://www.hems-workshop.org/6thWS/quicklinkalpha.html
+https://www.hems-workshop.org/5thWS/5thquicklinksalpha.html
+https://www.hems-workshop.org/4thWS/4thquicklinksauthor.html
+https://www.hems-workshop.org/3rdWS/3rdquicklinksalpha.html
+https://www.hems-workshop.org/2ndWS/2ndquicklinksalpha.html

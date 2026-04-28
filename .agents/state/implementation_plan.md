@@ -26,8 +26,9 @@
 
 ## 5. Sub-Plan: Legacy Standardisation (Workshops 1-12)
 *   **Objective:** Standardize the remaining 12 legacy HEMS Workshop archives (1st through 12th) using the newly created archive-template.tsx.
-*   **Rule Enforcement:** Read the text of the table on the provided URL only. Do NOT click any links, do not follow 'Abstract' links, and do not navigate to any page containing the word 'Home' or 'Workshop'. Treat the page as a flat text document and ignore its structure.
-*   **Pipeline:** Write a localized Python extraction script (e.g. scratch/flat_text_extractor.py) that uses urllib and BeautifulSoup to perform a single, stateless GET request to each of the 12 'Program Book Links'. The script will strip away all HTML structure, extract only the inner text of the <table> elements, and save the raw string data to local text files. Then, map that flat text into the new TSX template.
+*   **Manual Download Protocol:** Automated crawling has been halted due to systemic hangups. **@bo** will manually download the raw HTML files for the 12 'Program Book' pages.
+*   **Local Staging Structure:** @bo will save the downloaded HTML files into the following directory: `docs/archives_translation/raw_html/[year]_program.html`.
+*   **Pipeline:** Write a local Python extraction script (e.g. `scratch/local_text_extractor.py`) that reads the manually downloaded HTML files from `docs/archives_translation/raw_html/`. The script will parse the local files with BeautifulSoup, extract only the inner text of the `<table>` elements, and output the structured data into our local JSON database.
 
 ---
 
@@ -51,6 +52,33 @@ Instead of maintaining 25 independent hardcoded TSX files, we will create ONE dy
 *   **[NEW]** `scratch/json_migrator.py`
 To preserve the hard work done in Phase 5, we will write a one-off python script that repurposes our text-extraction engine to output the 13 legacy workshops directly into our new JSON database schema, instantly populating the database.
 
-## User Review Required
-> [!IMPORTANT]
-> **@bo:** Does this Data-Driven Dynamic Routing approach align with your vision for the "local database"? If approved, we will immediately execute the JSON migration and consolidate the frontend codebase.
+## 7. Sub-Plan: Artifact Ingestion & Hosting
+
+In alignment with the architectural vision (Google Cloud Storage for 25+ years of PDF/PPTX proceedings), we will safely decouple the newly extracted presentation links from the fragile legacy servers.
+
+### Proposed Pipeline
+1. **Manual Download:** **@bo** will manually download the PDF/PPTX artifacts to avoid crawl failures.
+2. **Local Staging:** @bo will place the downloaded artifacts into structured folders: `docs/archives_translation/proceedings/[year]/[filename]`.
+3. **Cloud Upload**: A script (`scratch/artifact_uploader.py`) will bulk upload the staging directories to a permanent **Google Cloud Storage (GCS)** bucket configured for public read access.
+4. **Database Remapping**: Update the JSON database to point `presentationUrl` and `abstractUrl` to the new GCS base URLs.
+
+## 8. Sub-Plan: Corporate Sponsor Asset Ingestion
+
+In order to support the migration of corporate sponsors to the new site, we will add a dynamic asset ingestion module.
+
+### Proposed Pipeline
+1. **Dynamic Frontend Section:** Expand the `scratch/presenter_ingestion_ui.py` with a "Corporate Sponsors" interface.
+2. **Dynamic Fields:** Provide text inputs for `Company Name` and `Year Began Sponsorship`, and a Drag-and-Drop zone for the logo image file.
+3. **Global Directory Structure:** Since sponsors are a persistent global entity across all workshops, the server will route these uploads to a new, dedicated global staging directory: `docs/archives_translation/sponsors/`.
+4. **Filename Schema:** Uploads will be automatically renamed to: `[CompanyName]_[YearBegan].[ext]`.
+
+## 9. Sub-Plan: Poster Presentation Manual Ingestion
+
+In order to support the manual ingestion of newly discovered poster presentations and their associated abstracts, we will add a dynamic poster ingestion module to the UI.
+
+### Proposed Pipeline
+1. **Dynamic Frontend Section:** Expand the `scratch/presenter_ingestion_ui.py` with a "Poster Presentations" interface.
+2. **Dynamic Fields:** Provide text inputs for `Name`, `Affiliation`, and `Title`.
+3. **Dual Dropzones:** Each row will feature two distinct drag-and-drop zones—one for the Poster Presentation and one for the Abstract. Each dropzone will have an independent "Mark Not Provided" button.
+4. **Target Directory Structure:** Uploads will be routed to `docs/archives_translation/proceedings/14th/Poster/` and `docs/archives_translation/proceedings/14th/Abstract/` respectively.
+5. **Metadata Syncing:** A new `poster_metadata.json` tracker will be maintained, aggregating the Name, Affiliation, Title, and paths for both uploaded artifacts.

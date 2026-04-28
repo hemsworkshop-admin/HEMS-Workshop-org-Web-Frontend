@@ -1,0 +1,365 @@
+"use client";
+
+import React, { useState, useEffect, useRef } from 'react';
+import PresentationsManager from './components/PresentationsManager';
+import SponsorsManager from './components/SponsorsManager';
+import StudentsManager from './components/StudentsManager';
+import PostersManager from './components/PostersManager';
+import EventsManager from './components/EventsManager';
+
+export default function WorkshopManager() {
+  const [workshops, setWorkshops] = useState<any[]>([]);
+  const [selectedIdx, setSelectedIdx] = useState<number>(-1);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [pushing, setPushing] = useState(false);
+  const [logs, setLogs] = useState('');
+  const [downloadingStatus, setDownloadingStatus] = useState<Record<string, string>>({});
+
+  const latestWorkshops = useRef(workshops);
+  useEffect(() => {
+    latestWorkshops.current = workshops;
+  }, [workshops]);
+
+  const handleAdminPasteDownload = async (
+    e: React.ClipboardEvent<HTMLInputElement>,
+    index: number,
+    field: 'program_url' | 'participant_list_url',
+    fileName: string
+  ) => {
+    const pastedText = e.clipboardData.getData('text');
+    if (!pastedText.startsWith('http')) return;
+
+    // Update item immediately
+    const updated = [...latestWorkshops.current];
+    updated[index] = { ...updated[index], [field]: pastedText };
+    setWorkshops(updated);
+
+    const statusKey = `${index}-${field}`;
+    setDownloadingStatus(prev => ({ ...prev, [statusKey]: 'downloading' }));
+
+    try {
+      const res = await fetch('/api/manager/download-legacy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          url: pastedText,
+          category: 'Administrative',
+          wsNum: String(updated[index].number),
+          fileName,
+          session: 'Administrative'
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setDownloadingStatus(prev => ({ ...prev, [statusKey]: 'success' }));
+        setTimeout(() => setDownloadingStatus(prev => ({ ...prev, [statusKey]: '' })), 3000);
+      } else {
+        throw new Error(data.error);
+      }
+    } catch (err: any) {
+      console.error(err);
+      setDownloadingStatus(prev => ({ ...prev, [statusKey]: 'error' }));
+      setTimeout(() => setDownloadingStatus(prev => ({ ...prev, [statusKey]: '' })), 3000);
+    }
+  };
+
+  // Fetch initial data
+  useEffect(() => {
+    // In a real scenario, we'd fetch from a GET api, but to keep it simple
+    // we can use dynamic import or just start with an empty array if not fetched.
+    fetch('/api/manager/workshops')
+      .then((res) => {
+        if (!res.ok) throw new Error('Not found');
+        return res.json();
+      })
+      .then((data) => {
+        setWorkshops(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        // Fallback: If GET route doesn't exist, start empty
+        setWorkshops([]);
+        setLoading(false);
+      });
+  }, []);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const res = await fetch('/api/manager/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(workshops),
+      });
+      if (!res.ok) throw new Error('Save failed');
+      alert('Saved locally!');
+      if (selectedIdx >= 0 && workshops[selectedIdx]) {
+        window.open(`http://localhost:3000/archive/${workshops[selectedIdx].year}`, '_blank');
+      }
+    } catch (err: any) {
+      alert('Error: ' + err.message);
+    }
+    setSaving(false);
+  };
+
+  const handlePush = async () => {
+    setPushing(true);
+    try {
+      const res = await fetch('/api/manager/push', { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Push failed');
+      setLogs(data.gcloudLog || 'Success');
+      alert('Pushed to Git and GCloud successfully!');
+    } catch (err: any) {
+      alert('Error: ' + err.message);
+    }
+    setPushing(false);
+  };
+
+  const addWorkshop = () => {
+    const newWs = {
+      number: workshops.length + 1,
+      year: new Date().getFullYear(),
+      venue: '',
+      address: '',
+      city: '',
+      presentations: [],
+      sponsors: [],
+      student_awards: [],
+      posters: [],
+      events: [],
+    };
+    setWorkshops([...workshops, newWs]);
+    setSelectedIdx(workshops.length);
+  };
+
+  if (loading) return <div className="p-10 text-white">Loading...</div>;
+
+  const currentWs = selectedIdx >= 0 ? workshops[selectedIdx] : null;
+
+  return (
+    <div className="min-h-screen bg-slate-900 text-slate-200 p-8 font-sans">
+      <div className="flex justify-between items-center mb-8 border-b border-slate-700 pb-4">
+        <h1 className="text-3xl font-bold text-sky-400">🛠️ Workshop Manager</h1>
+        <div className="space-x-4">
+          <button 
+            onClick={handleSave} 
+            disabled={saving}
+            className="bg-teal-600 hover:bg-teal-500 text-white px-4 py-2 rounded font-bold"
+          >
+            {saving ? 'Saving...' : '💾 Save and Present on Local Host'}
+          </button>
+          <button 
+            onClick={handlePush}
+            disabled={pushing}
+            className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded font-bold"
+          >
+            {pushing ? 'Pushing...' : '🚀 Push to Cloud'}
+          </button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-4 gap-8">
+        <div className="col-span-1 bg-slate-800 p-4 rounded border border-slate-700">
+          <h2 className="text-xl font-bold mb-4 text-sky-400">Workshops</h2>
+          <ul className="space-y-2">
+            {workshops.map((ws, i) => (
+              <li 
+                key={i} 
+                className={`p-2 cursor-pointer rounded ${selectedIdx === i ? 'bg-sky-900 text-sky-100' : 'hover:bg-slate-700'}`}
+                onClick={() => setSelectedIdx(i)}
+              >
+                {ws.number}th Workshop ({ws.year})
+              </li>
+            ))}
+          </ul>
+          <button 
+            onClick={addWorkshop}
+            className="mt-4 w-full bg-slate-700 hover:bg-slate-600 py-2 rounded text-sm"
+          >
+            + Add Workshop
+          </button>
+        </div>
+
+        <div className="col-span-3 bg-slate-800 p-6 rounded border border-slate-700">
+          {!currentWs ? (
+            <p className="text-slate-400">Select a workshop to edit.</p>
+          ) : (
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold text-sky-400">Metadata</h2>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-bold text-slate-400 mb-1">Number</label>
+                  <input 
+                    type="number" 
+                    value={currentWs.number} 
+                    onChange={(e) => {
+                      const updated = [...workshops];
+                      updated[selectedIdx].number = e.target.value;
+                      setWorkshops(updated);
+                    }}
+                    className="w-full bg-slate-900 border border-slate-600 rounded p-2 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-400 mb-1">Year</label>
+                  <input 
+                    type="number" 
+                    value={currentWs.year} 
+                    onChange={(e) => {
+                      const updated = [...workshops];
+                      updated[selectedIdx].year = e.target.value;
+                      setWorkshops(updated);
+                    }}
+                    className="w-full bg-slate-900 border border-slate-600 rounded p-2 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-400 mb-1">City</label>
+                  <input 
+                    type="text" 
+                    value={currentWs.city} 
+                    onChange={(e) => {
+                      const updated = [...workshops];
+                      updated[selectedIdx].city = e.target.value;
+                      setWorkshops(updated);
+                    }}
+                    className="w-full bg-slate-900 border border-slate-600 rounded p-2 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-400 mb-1">Venue Name</label>
+                  <input 
+                    type="text" 
+                    value={currentWs.venue} 
+                    onChange={(e) => {
+                      const updated = [...workshops];
+                      updated[selectedIdx].venue = e.target.value;
+                      setWorkshops(updated);
+                    }}
+                    className="w-full bg-slate-900 border border-slate-600 rounded p-2 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-400 mb-1">Venue Address</label>
+                  <input 
+                    type="text" 
+                    value={currentWs.address || ''} 
+                    onChange={(e) => {
+                      const updated = [...workshops];
+                      updated[selectedIdx].address = e.target.value;
+                      setWorkshops(updated);
+                    }}
+                    className="w-full bg-slate-900 border border-slate-600 rounded p-2 text-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-400 mb-1">Venue URL</label>
+                  <input 
+                    type="url" 
+                    value={currentWs.venue_url || ''} 
+                    onChange={(e) => {
+                      const updated = [...workshops];
+                      updated[selectedIdx].venue_url = e.target.value;
+                      setWorkshops(updated);
+                    }}
+                    className="w-full bg-slate-900 border border-slate-600 rounded p-2 text-white"
+                  />
+                </div>
+                <div className="relative">
+                  <label className="block text-sm font-bold text-slate-400 mb-1">Legacy Program URL</label>
+                  <input 
+                    type="url" 
+                    value={currentWs.program_url || ''} 
+                    onChange={(e) => {
+                      const updated = [...workshops];
+                      updated[selectedIdx].program_url = e.target.value;
+                      setWorkshops(updated);
+                    }}
+                    onPaste={e => handleAdminPasteDownload(e, selectedIdx, 'program_url', `${currentWs.number}th_Program.pdf`)}
+                    className={`w-full bg-slate-900 border ${downloadingStatus[`${selectedIdx}-program_url`] === 'downloading' ? 'border-yellow-500' : downloadingStatus[`${selectedIdx}-program_url`] === 'success' ? 'border-green-500' : downloadingStatus[`${selectedIdx}-program_url`] === 'error' ? 'border-red-500' : 'border-slate-600'} rounded p-2 text-white transition-colors`} 
+                  />
+                  {downloadingStatus[`${selectedIdx}-program_url`] === 'downloading' && <span className="absolute top-1 right-2 text-[10px] text-yellow-500 font-bold">Downloading...</span>}
+                </div>
+                <div className="relative">
+                  <label className="block text-sm font-bold text-slate-400 mb-1">Legacy Participant List URL</label>
+                  <input 
+                    type="url" 
+                    value={currentWs.participant_list_url || ''} 
+                    onChange={(e) => {
+                      const updated = [...workshops];
+                      updated[selectedIdx].participant_list_url = e.target.value;
+                      setWorkshops(updated);
+                    }}
+                    onPaste={e => handleAdminPasteDownload(e, selectedIdx, 'participant_list_url', `${currentWs.number}th_Participant_List.pdf`)}
+                    className={`w-full bg-slate-900 border ${downloadingStatus[`${selectedIdx}-participant_list_url`] === 'downloading' ? 'border-yellow-500' : downloadingStatus[`${selectedIdx}-participant_list_url`] === 'success' ? 'border-green-500' : downloadingStatus[`${selectedIdx}-participant_list_url`] === 'error' ? 'border-red-500' : 'border-slate-600'} rounded p-2 text-white transition-colors`} 
+                  />
+                  {downloadingStatus[`${selectedIdx}-participant_list_url`] === 'downloading' && <span className="absolute top-1 right-2 text-[10px] text-yellow-500 font-bold">Downloading...</span>}
+                </div>
+              </div>
+
+              {/* Dynamic Components */}
+              <div className="space-y-12 mt-8">
+                <EventsManager 
+                  events={currentWs.events || []} 
+                  onChange={(newData) => {
+                    const updated = [...workshops];
+                    updated[selectedIdx].events = newData;
+                    setWorkshops(updated);
+                  }}
+                />
+
+                <PresentationsManager 
+                  presentations={currentWs.presentations || []} 
+                  wsNum={String(currentWs.number)}
+                  onChange={(newData) => {
+                    const updated = [...workshops];
+                    updated[selectedIdx].presentations = newData;
+                    setWorkshops(updated);
+                  }}
+                />
+
+                <SponsorsManager 
+                  sponsors={currentWs.sponsors || []} 
+                  wsNum={String(currentWs.number)}
+                  onChange={(newData) => {
+                    const updated = [...workshops];
+                    updated[selectedIdx].sponsors = newData;
+                    setWorkshops(updated);
+                  }}
+                />
+
+                <StudentsManager 
+                  students={currentWs.student_awards || []} 
+                  wsNum={String(currentWs.number)}
+                  onChange={(newData) => {
+                    const updated = [...workshops];
+                    updated[selectedIdx].student_awards = newData;
+                    setWorkshops(updated);
+                  }}
+                />
+
+                <PostersManager 
+                  posters={currentWs.posters || []} 
+                  wsNum={String(currentWs.number)}
+                  onChange={(newData) => {
+                    const updated = [...workshops];
+                    updated[selectedIdx].posters = newData;
+                    setWorkshops(updated);
+                  }}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {logs && (
+        <div className="mt-8 bg-black p-4 rounded font-mono text-sm text-green-400 overflow-x-auto whitespace-pre">
+          {logs}
+        </div>
+      )}
+    </div>
+  );
+}

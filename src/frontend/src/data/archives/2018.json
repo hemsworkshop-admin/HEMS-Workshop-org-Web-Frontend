@@ -11,7 +11,12 @@
       "icon": "FileText"
     }
   ],
-  "sponsors": [],
+  "sponsors": [
+    {
+      "name": "Hems Logo",
+      "logoUrl": "/assets/archives/2018/sponsors/hemslogo3.jpg"
+    }
+  ],
   "schedule": [
     {
       "title": "Tue, 10/16 | Travel Day",
@@ -48,8 +53,8 @@
               "time": "10:00 a.m.",
               "title": "\"Anomalous Uses of Mass Spectrometers at NASA\" Kathleen B. Loftin, Ph.D., Deputy Center Chief Technologist, NASA Kennedy Space Center Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Loftin.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/1_Loftin.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/loftin.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/1_loftin.pdf"
             }
           ]
         },
@@ -74,15 +79,15 @@
               "time": "11:00 a.m.",
               "title": "\"Development of Portable Mass Spectrometer for Explosives and Narcotics Detection\" Vadym Berkout, Smiths Detection Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Berkout.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/2_Berkout.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/berkout.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/2_berkout.pdf"
             },
             {
               "time": "11:30 a.m.",
               "title": "\"CubeSat QIT-MS: Rad Hard Miniature Instrument for Solar System Exploration\" Stojan Madzunkov, Jet Propulsion Laboratory Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Madzunkov.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/3_Madzunkov.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/madzunkov.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/3_madzunkov.pdf"
             }
           ]
         },
@@ -101,15 +106,15 @@
               "time": "1:30 A.M.",
               "title": "\"An optimized membrane inlet system for underwater mass spectrometry\" Malte Höhn, Christian Hamm, Justin Chaillot, Marvin Frank, Torben Gentz Alfred-Wegener-Institute for Polar and Marine Research Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Hoehn.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/4_Hohn.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/hoehn.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/4_hohn.pdf"
             },
             {
               "time": "2:00 A.M.",
               "title": "\"Isotopic ratio study of uranyl ion with Differential mobility Spectrometry-mass spectrometry\" Ifeoluwa Ayodeji and Theresa Evans-Nguyen, Dept. of Chemistry, University of South Florida; Sunil Badal, Garett Maclean and Jacob T. Shelley, Dept. of Chemistry and Chemical Biology Rensselaer Polytechnic Institute Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Ayodeji.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/6_Hayashi.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/ayodeji.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/6_hayashi.pdf"
             }
           ]
         },
@@ -133,15 +138,15 @@
               "time": "3:30 p.m.",
               "title": "\"Field Deployable Mass Spectrometers at Tofwerk\" Marc Gonin, TOFWERK Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Gonin.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/7_Gonin.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/gonin.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/7_gonin.pdf"
             },
             {
               "time": "4:00 p.m.",
               "title": "\"Optimization of a portable QMS for environmental monitoring\" T. Fildes, D.G. McIntosh, M.J. Antony Joseph, B. Smith, S. Maher, J.R. Gibson and S. Taylor Department of Electrical Engineering and Electronics, University of Liverpool Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Fildes.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/8_Fildes.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/fildes.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/8_fildes.pdf"
             }
           ]
         },
@@ -165,15 +170,15 @@
               "time": "9:00 a.m.",
               "title": "\"Rapid Identification of Drug Seizures by ASAP-MS on a Low-Cost, Deployable, Single Quadrupole Instrument\" Bryan McCullough, Chris Hopley, National Measurement Laboratory, LGC David Douce, Nicola Lumley, Steve Bajic and Kate Whyatt, Waters Corporation Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Hopley.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/9_McCulough.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/hopley.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/9_mcculough.pdf"
             },
             {
               "time": "9:30 a.m.",
               "title": "\"Mobile Mass Spectrometer Systems for Online Oil Emission and Oil Dilution Measurements in Combustion Engine Test Cells.\" Andreas Behn, Matthias Feindt, Sven Krause, Lars Schomann, Lubrisense GmbH Ann-Christin Preuss, Gerhard Matz, Institute of Analytical Measurement Technology Hamburg Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Behn.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/10_Behn.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/behn.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/10_behn.pdf"
             }
           ]
         },
@@ -192,22 +197,22 @@
               "time": "10:30 a.m.",
               "title": "\"Two-dimensional mass spectrometry on benchtop and portable ion trap mass spectrometers\" Dalton Snyder, Lucas Szalwinski, Ryan Hilger, Robert Schrader, Valentina Pirro, R. Graham Cooks, Purdue University Department of Chemistry Zachary St. John, The College of New Jersey, Desmond Kaplan, KapScience LLC, Ryan Danell, Danell Consulting, Inc., Veronica Pinnick, Paul Mahaffy, NASA Goddard Space Flight Center, Mitch Wells, FLIR Systems, Inc Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Snyder.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/11_Snyder.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/snyder.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/11_snyder.pdf"
             },
             {
               "time": "11:00 a.m.",
               "title": "\"Development of Micro-Time-Of-Flight Mass Spectrometer for in situ gas analysis\" Alexandre Sonnette, Frédéric Progent, Jérôme Tupinier, Pierre-Etienne Buthier, Jean-Christophe Lictevout, Sébastien Vigne, CEA, DAM, DIF Thomas Alava, CEA, LETI, MINATEC Campus Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Sonnette.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/12_Sonnette.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/sonnette.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/12_sonnette.pdf"
             },
             {
               "time": "11:30 a.m.",
               "title": "\"Instrumentation for Lunar Volatile Analysis\" Janine Captain, NASA Kennedy Space Center Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Captain.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/13_Captain.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/captain.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/13_captain.pdf"
             }
           ]
         },
@@ -226,15 +231,15 @@
               "time": "1:30 p.m.",
               "title": "\"Development of a robust Fourier-Transform ion trap for semiconductor manufacturing\" Valerie Derpmann, Yessica Brachthäuser, Rüdiger Reuter, Michel Aliman, Alexander Laue, Hin Yiu Chung, Carl Zeiss SMT GmbH Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Derpmann.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/14_Derpmann.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/derpmann.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/14_derpmann.pdf"
             },
             {
               "time": "2:00 p.m.",
               "title": "\"Reverse-gas stack modeling-coupled to fieldable mass spectrometry to locate chemical effluent streams for clandestine drug labs, explosives manufacturing, and chemical weapon deployment.\" Guido F. Verbeck, Camila Anguiano Virgen, University of North Texas Kenneth C. Wright, Jaime L. Winfield, James D. Fox, INFICON Inc Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Verbeck.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/16_McBride.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/verbeck.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/16_mcbride.pdf"
             },
             {
               "time": "2:30 p.m.",
@@ -258,8 +263,8 @@
               "time": "3:30 p.m.",
               "title": "\"A Quadrupole Ion Trap for the Detection of Biomarkers at Icy Worlds\" Joshua Wiley, Anton Belousov, Sarah Waller, Dragan Nikolic, Richard Kidd, Stojan Madzunkov, Morgan Cable, Murray Darrach Jet Propulsion Laboratory, California Institute of Technology Abstract",
               "authors": "",
-              "presentationUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Presentations/Wiley.pdf",
-              "abstractUrl": "https://www.hems-workshop.org/12thWS_EUROHEMS/Abstracts/17_Diaz.pdf"
+              "presentationUrl": "/assets/archives/2018/presentations/wiley.pdf",
+              "abstractUrl": "/assets/archives/2018/abstracts/17_diaz.pdf"
             },
             {
               "time": "4:00 p.m.",
