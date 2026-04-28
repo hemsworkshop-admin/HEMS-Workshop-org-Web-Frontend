@@ -42,3 +42,5 @@ next-env.d.ts
 
 # legacy archives
 /public/assets/archives
+
+.vercel

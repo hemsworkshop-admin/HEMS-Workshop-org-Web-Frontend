@@ -11,7 +11,7 @@
 ## 1. Version Control (Git)
 *   **Account Name:** `hemsworkshop-admin`
 *   **Repository Name:** `HEMS-Workshop-org-Web-Frontend`
-*   **Remote URL:** \[https://github.com/hemsworkshop-admin/HEMS-Workshop-org-Web-Frontend.git\]
+*   **Remote URL:** \[https://hemsworkshop-admin@github.com/hemsworkshop-admin/HEMS-Workshop-org-Web-Frontend.git\]
 *   **Primary Branch:** `main`
 
 ---
@@ -40,7 +40,8 @@
 ## 4. Backend & Storage (Google Cloud / Firebase)
 *   **Platform:** Google Cloud Platform (GCS / Cloud Functions) & Cloud Firestore
 *   **Purpose:** Automated ingestion pipeline for PDFs and NoSQL metadata storage.
-*   **GCP Project ID:** `[Pending]`
+*   **GCP Project ID:** `hems-workshop-production`
+*   **GCP Owner Account:** `hemsworkshop@gmail.com`
 *   **GCS Bucket Name (Archive):** `[Pending]`
 *   **Firebase Environment Variables Needed:**
     *   `NEXT_PUBLIC_FIREBASE_PROJECT_ID`
